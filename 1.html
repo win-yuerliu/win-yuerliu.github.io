@@ -1,0 +1,52 @@
+<?php
+/*
+Template Name: 下载页面
+*/
+get_header();
+?>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+            <div class="post">
+                <h1 class="post-title"><?php the_title(); ?></h1>
+                <div class="post-content">
+                    <?php the_content(); ?>
+                    <?php
+                    // 获取自定义字段的值
+                    $download_type = get_post_meta(get_the_ID(), 'download_type', true);
+                    $download_url = get_post_meta(get_the_ID(), 'download_url', true);
+                    $download_vip = get_post_meta(get_the_ID(), 'download_vip', true);
+                    // 判断是否需要 VIP 权限下载
+                    if ($download_vip == 'yes') {
+                        // 判断用户是否登录
+                        if (is_user_logged_in()) {
+                            // 获取当前用户的 ID 和 VIP 等级
+                            $user_id = get_current_user_id();
+                            $user_vip = get_user_meta($user_id, 'vip_level', true);
+                            // 判断用户是否有 VIP 等级
+                            if ($user_vip) {
+                                // 显示下载按钮
+                                echo '<a href="'.$download_url.'" class="btn btn-primary" target="_blank">点击下载</a>';
+                            } else {
+                                // 提示用户升级 VIP
+                                echo '<p>抱歉，您还不是 VIP 用户，无法下载该资源。</p>';
+                                echo '<p>请<a href="'.home_url('/vip/').'">点击这里</a>查看 VIP 套餐并升级。</p>';
+                            }
+                        } else {
+                            // 提示用户登录或注册
+                            echo '<p>抱歉，您还没有登录，无法下载该资源。</p>';
+                            echo '<p>请<a href="'.wp_login_url().'">点击这里</a>登录或<a href="'.wp_registration_url().'">点击这里</a>注册。</p>';
+                        }
+                    } else {
+                        // 显示下载按钮
+                        echo '<a href="'.$download_url.'" class="btn btn-primary" target="_blank">点击下载</a>';
+                    }
+                    ?>
+                </div>
+            </div>
+            <?php endwhile; endif; ?>
+        </div>
+    </div>
+</div>
+<?php get_footer(); ?>
