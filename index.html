@@ -7,47 +7,53 @@
         /* 省略前面的代码 */
 
         /* 设置页头和页脚样式 */
+
         header, footer {
-            background-color: blue;
+            background-color: #f2f2f2;
             color: #000;
             text-align: center;
             padding: 20px;
-            animation: fadeIn 5s; /* 添加淡入动画 */
+            animation-delay: 2s; /* 添加延迟动画 */
         }
         footer p {
             margin: 0;
         }
 
-        /* 设置主体部分样式 */
-        main {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: blue;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            animation: zoomIn 5s; /* 添加缩放动画 */
-        }
+
+               /* 设置主体部分样式 */
+main {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #f0f8ff; /* 设置浅蓝色背景 */
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
         h2 {
             font-size: 24px;
             color: #000;
             margin-top: 40px;
-            animation: slideFromLeft 5s; /* 添加从左滑入动画 */
         }
         ul {
             list-style: disc;
             margin-left: 30px;
-            animation: fadeIn 5s; /* 添加淡入动画 */
         }
         li {
             margin-bottom: 10px;
-            animation: slideFromRight 5s; /* 添加从右滑入动画 */
         }
 
         /* 设置 logo 动画 */
         .logo {
-            animation: spin 5s linear infinite;
+            animation: spin 2s linear infinite;
         }
-
+        /* 定义关键帧动画 */
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <header class="animate__animated animate__fadeIn"> <!-- 使用 fadeIn 动画 -->
         /* 定义关键帧动画 */
         @keyframes spin {
             from { transform: rotate(0deg); }
@@ -119,16 +125,16 @@ x.pause();
 
             <li><a href="https://chat7.aichatos.xyz/#/chat/1685799835225" target="_blank">AIChatOS</a>.</p>
         </ul>
-    <footer> <!-- 网页尾部 -->
+ <footer class="animate__animated animate__fadeInUp"> <!-- 使用 fadeInUp 动画 -->
         <p>
-            &copy; <!-- 版权符号 -->
+            &copy;
             <script>
-                document.write(new Date().getFullYear()); <!-- 使用 JavaScript 输出当前年份 -->
+                document.write(new Date().getFullYear());
             </script>
-            Yuerliu-iKun. 版权所有. <!-- 版权声明 -->
+            Yuerliu-iKun. 版权所有.
         </p>
     </footer>
 
-    <script src="main.js"></script> <!-- 引入 JavaScript 文件 -->
+    <script src="main.js"></script>
 </body>
 </html>
