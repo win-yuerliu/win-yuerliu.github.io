@@ -64,7 +64,20 @@ main {
  <!-- 网页头部 -->
         <h1>欢迎来到Yuerliu-iKun的网站，本站点由GitHub托管</h1> <!-- 网页主标题 -->
     </header>
+h1 {
 
+    font-size: 48px; /* 设置标题字体大小为 48 像素 */
+    background: -webkit-linear-gradient(-45deg, #f22, #37e, #56f); /* 设置标题渐变背景色 */
+    -webkit-background-clip: text; /* 指定背景剪切到文字本身上 */
+    -webkit-text-fill-color: transparent; /* 文字透明，只显示背景颜色 */
+    animation: rainbow 5s linear infinite; /* 指定标题动画效果 */
+}
+
+@keyframes rainbow {
+    0% {background-position: 0% 50%}
+    50% {background-position: 100% 50%}
+    100% {background-position: 0% 50%}
+}
     <nav> <!-- 导航栏 -->
         <ul> <!-- 无序列表 -->
             <li><a href="#">坤坤</a></li> <!-- 首页链接 -->
