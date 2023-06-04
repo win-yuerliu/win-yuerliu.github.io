@@ -1,101 +1,87 @@
 <!DOCTYPE html>
 <html lang="zh-cn">
 <head>
-    <meta charset="UTF-8"> <!-- 设置字符编码为 UTF-8 -->
-    <title>Yuerliu-iKun的个人网站</title> <!-- 设置网页标题 -->
+    <meta charset="UTF-8">
+    <title>Yuerliu-iKun的个人网站</title>
     <style>
-        /* 为文本和链接添加样式 */
-        body {
-            font-family: Arial, sans-serif; /* 设置字体 */
-            font-size: 14px; /* 设置字号 */
-            line-height: 1.6; /* 设置行高 */
-            color: #333; /* 设置文本颜色 */
-            background-color: #87CEFA; /* 设置背景颜色 */
-        }
-        a {
-            color: #000; /* 设置链接颜色为白色 */
-            text-decoration: none; /* 去掉下划线 */
-        }
-        a:hover { /* 鼠标悬停时的样式 */
-            color: #000; /* 链接变为黑色 */
-            text-decoration: underline; /* 添加下划线 */
-        }
-
-        /* 设置导航栏样式 */
-        nav ul {
-            list-style: none; /* 去掉列表符号 */
-            margin: 0; /* 去掉外边距 */
-            padding: 0; /* 去掉内边距 */
-            display: flex; /* 使用 Flexbox 布局 */
-            justify-content: space-between; /* 均分空间 */
-            align-items: center; /* 垂直居中 */
-            background-color: src=#f2f2f2; /* 修改背景颜色为蓝色 */
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 添加阴影 */
-        }
-        nav li {
-            margin: 0 10px; /* 水平间距 */
-        }
-        nav a {
-            display: block; /* 块级元素 */
-            padding: 10px;
-            color: #fff; /* 设置字体颜色为白色 */
-        }
-        nav a:hover {
-            background-color: #ffffff; /* 鼠标悬停时的背景颜色 */
-            color: #2196f3; /* 鼠标悬停时设置字体颜色为蓝色 */
-        }
+        /* 省略前面的代码 */
 
         /* 设置页头和页脚样式 */
         header, footer {
-            background-color: src="#f2f2f2"; /* 设置背景颜色 */
-            color: #fff; /* 设置文本颜色 */
-            text-align: center; /* 居中对齐 */
-            padding: 20px; /* 设置内边距 */
+            background-color: #f2f2f2;
+            color: #000;
+            text-align: center;
+            padding: 20px;
+            animation: fadeIn 1s; /* 添加淡入动画 */
         }
         footer p {
-            margin: 0; /* 去掉外边距 */
+            margin: 0;
         }
 
         /* 设置主体部分样式 */
         main {
-            max-width: 800px; /* 设置最大宽度 */
-            margin: 0 auto; /* 居中对齐 */
-            padding: 20px; /* 设置内边距 */
-            background-color: src="#f2f2f2" /* 设置背景颜色 */
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 添加阴影 */
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f2f2f2;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            animation: zoomIn 1s; /* 添加缩放动画 */
         }
         h2 {
-            font-size: 24px; /* 设置标题字号 */
-            color: #000; /* 设置标题颜色 */
-            margin-top: 40px; /* 上边距 */
+            font-size: 24px;
+            color: #000;
+            margin-top: 40px;
+            animation: slideFromLeft 1s; /* 添加从左滑入动画 */
         }
         ul {
-            list-style: disc; /* 设置列表符号为实心圆 */
-            margin-left: 30px; /* 左缩进 */
+            list-style: disc;
+            margin-left: 30px;
+            animation: fadeIn 1s; /* 添加淡入动画 */
         }
         li {
-            margin-bottom: 10px; /* 下边距 */
+            margin-bottom: 10px;
+            animation: slideFromRight 1s; /* 添加从右滑入动画 */
         }
 
-        /* 定义一个名为 spin 的关键帧动画 */
-        @keyframes spin {
-            from { transform: rotate(0deg); } /* 0 度旋转 */
-            to { transform: rotate(360deg); } /* 360 度旋转 */
-        }
-        /* 将 spin 动画应用到 .logo 元素 */
+        /* 设置 logo 动画 */
         .logo {
-            animation: spin 2s linear infinite; /* 持续 2 秒，线性运动，无限循环 */
+            animation: spin 2s linear infinite;
+        }
+
+        /* 定义关键帧动画 */
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        @keyframes slideFromLeft {
+            from { transform: translateX(-100px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        @keyframes slideFromRight {
+            from { transform: translateX(100px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        @keyframes zoomIn {
+            from { transform: scale(0); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
     </style>
 </head>
 <body>
-    <header> <!-- 网页头部 -->
+    <header>
+        <h1>欢迎来到Yuerliu-iKun的网站，本站点由GitHub托管</h1>
+    </header>
+ <!-- 网页头部 -->
         <h1>欢迎来到Yuerliu-iKun的网站，本站点由GitHub托管</h1> <!-- 网页主标题 -->
     </header>
 
     <nav> <!-- 导航栏 -->
         <ul> <!-- 无序列表 -->
-            <li><a href="#">小视频</a></li> <!-- 首页链接 -->
+            <li><a href="#">坤坤</a></li> <!-- 首页链接 -->
 
         </ul>
     </nav>
