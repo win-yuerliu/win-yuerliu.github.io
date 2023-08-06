@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* 添加样式以提升界面外观 */
+        body {
+            background-color: #f2f2f2;
+            font-family: Arial, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+
+        .file-container {
+            margin-top: 20px;
+        }
+
+        .file-information {
+            margin-top: 10px;
+            text-align: left;
+        }
+
+        .file-attributes p {
+            margin: 5px 0;
+        }
+
+        .download-btn {
+            margin-top: 10px;
+            padding: 5px 10px;
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+.file-container {
+  display: flex;
+  align-items: flex-start;
+}
+
+.file-container img {
+  width: 300px;
+  height: 200px;
+}
+
+.file-information {
+  margin-left: 20px;
+}
+</style>
+
+<div class="file-container">
+  <!-- 图片部分 -->
+  <div>
+    <img src="https://www.example.com/file1.jpg" alt="文件1图片">
+  </div>
+
+  <!-- 文件详情部分 -->
+  <div class="file-information">
+    <div class="file-attributes">
+      <p>文件名：<strong>Your File 1.jpg</strong></p>
+      <p>大小：<strong>1.5 MB</strong></p>
+      <p>创建日期：<strong>2023-08-05</strong></p>
+      <p>描述：<strong>这是文件1的描述。</strong></p>
+    </div>
+    <!-- 下载按钮 -->
+    <button class="download-btn" data-download-link="https://www.example.com/file1.jpg">点击下载</button>
+  </div>
+</div>
+
+
+    <!-- JavaScript代码 -->
+    <script>
+        window.addEventListener('DOMContentLoaded', function() {
+            // 获取所有的下载按钮
+            var downloadButtons = document.querySelectorAll('.download-btn');
+
+            // 监听点击事件
+            downloadButtons.forEach(function(button) {
+                button.addEventListener('click', function() {
+                    // 获取按钮上的下载链接属性
+                    var downloadLink = button.getAttribute('data-download-link');
+
+                    // 如果下载链接存在，则在新窗口中打开下载链接
+                    if (downloadLink) {
+                        window.open(downloadLink);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
