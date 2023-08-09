@@ -1,67 +1,176 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Creative Website</title>
-  <style>
-
+<style>
 body {
-      background-image: url('https://static.wetab.link/user-wallpaper/zh/643100e399615689d60c1f09/643100e399615689d60c1f09.jpg?t=1690883256081'); /* 设置背景图片 */
-      background-repeat: no-repeat; /* 不重复平铺背景图片 */
-      background-size: cover; /* 缩放背景图片以适应窗口 */
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f1f1f1;
 }
-    .header {
 
-      padding: 20px; /* 设置内边距 */
-      text-align: center; /* 文字居中 */
-    }
+.sidebar {
+  background-color: #333;
+  padding: 20px;
+  width: 200px;
+  position: fixed;
+  top: 0;
+  height: 100vh;
+  color: #fff;
+  z-index: 999; /* 设置较高的层级 */
+  transition: all 0.3s ease-in-out; /* 添加过渡效果 */
+}
 
-    .content {
-      padding: 20px; /* 设置内边距 */
-      text-align: center; /* 文字居中 */
-    }
+.sidebar h2 {
+  margin-top: 0;
+  font-size: 18px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
 
-    .button {
-      
-      border: none;
-      color: #fff; /* 设置按钮文字颜色 */
-      padding: 10px 20px; /* 设置内边距 */
-      text-align: center; /* 文字居中 */
-      text-decoration: none;
-      display: inline-block;
-      font-size: 16px; /* 设置字体大小 */
-      margin: 10px;
-      cursor: pointer;
-      border-radius: 4px; /* 设置按钮圆角 */
-    }
-  </style>
+.sidebar ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar li {
+  margin-bottom: 10px;
+}
+
+.sidebar li a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #333;
+  min-width: 200px;
+  padding: 10px;
+  z-index: 999; /* 设置较高的层级 */
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:before {
+  content: "+";
+  position: absolute;
+  right: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.main-container {
+  margin-left: 200px; /* 设置默认与侧边栏的距离 */
+  transition: margin-left 0.3s ease-in-out; /* 添加过渡效果 */
+}
+
+.main-content {
+  padding: 20px;
+}
+
+iframe {
+  width: 100%;
+  height: calc(100vh - 40px);
+  border: none;
+}
+</style>
+
+<script>
+function toggleSidebar() {
+  var sidebar = document.getElementById('sidebar');
+  var mainContainer = document.getElementById('main-container');
+  
+  if (sidebar.style.width === '') {
+    sidebar.style.width = '0'; // 隐藏侧边栏
+    sidebar.style.padding = '0'; // 清除侧边栏内的内容
+    mainContainer.style.marginLeft = '0'; // 让主内容区域填满整个窗口
+  } else {
+    sidebar.style.width = ''; // 显示侧边栏
+    sidebar.style.padding = '';
+    mainContainer.style.marginLeft = '200px'; // 留出侧边栏的空间
+  }
+}
+
+function toggleDropdown(element) {
+  var dropdownContent = element.querySelector('.dropdown-content');
+  
+  if (dropdownContent.style.display === '' || dropdownContent.style.display === 'none') {
+    dropdownContent.style.display = 'block'; // 显示下拉菜单
+    element.style.marginBottom = dropdownContent.clientHeight + 'px'; // 增加下拉菜单的高度
+  } else {
+    dropdownContent.style.display = 'none'; // 隐藏下拉菜单
+    element.style.marginBottom = '10px'; // 恢复原始的下边距
+  }
+}
+</script>
 </head>
 <body>
-  <header class="header">
-    <h1>Welcome to My Creative Website</h1> <!-- 网页标题 -->
-  </header>
-  
-  <div class="content">
-    <h2>About Me</h2> <!-- 副标题 -->
-    <p>Hello! I am a passionate web developer who loves creating beautiful and functional websites.</p> <!-- 段落文本 -->
-    <p>Feel free to explore my portfolio and get in touch with me.</p> <!-- 段落文本 -->
-    <iframe
- src="https://udify.app/chatbot/eQ9pzgkM0Lu8iPAw"
- style="width: 100%; height: 100%; min-height: 700px"
- frameborder="0" 
- allow="microphone">
-    </iframe>
+<script>
+ window.difyChatbotConfig = { token: 'H88AZGJ2LMHdeyxI' }
+</script>
+<script
+ src="https://udify.app/embed.min.js"
+ id="H88AZGJ2LMHdeyxI"
+ defer>
+</script>
+<div id="sidebar" class="sidebar">
+  <h2>Win-Yuerliu的网站快捷导航</h2>
+  <ul>
+    <li class="dropdown" onclick="toggleDropdown(this)">
+      <a href="#">搜索</a>
+      <div class="dropdown-content">
+        <a href="https://cn.bing.com/" target="content">必应</a><br>
+        <a href="https://www.baidu.com/" target="content">百度</a><br>
+        <a href="https://www.so.com/" target="content">360搜索</a><br>
+        <a href="https://www.google.com/" target="content">谷歌</a>
+      </div>
+    </li>
+    <li class="dropdown" onclick="toggleDropdown(this)">
+      <a href="#">AI工具</a>
+      <div class="dropdown-content">
+        <a href="https://udify.app/chat/H88AZGJ2LMHdeyxI" target="content">ChatGPT By Dify</a><br>
+        <a href="https://udify.app/chat/pNQPEzSbRxogEvnv" target="content">ChatGPT1</a><br>
+        <a href="https://c.binjie.fun/" target="content">AIcHATOS</a><br>
+        <a href="https://udify.app/chat/FLb3LXeiNNOaTq0N" target="content">ChatGPT开发者</a>
+      </div>
+    </li>
+    <li>
+      <a href="https://tools.liumingye.cn/music/#/" target="content">MyFreeMP3</a>
+    </li>
+    <li>
+      <a href="https://www.bilibili.com/" target="content">bilibili</a>
+    </li>
+    <li class="dropdown" onclick="toggleDropdown(this)">
+      <a href="#">工具</a>
+      <div class="dropdown-content">
+        <a href="https://www.ainav.cn/" target="content">AI导航网</a><br>
+        <a href="https://www.xiaozhongjishu.com/?from=itab" target="content">小众技术库</a><br>
+        <a href="https://ps.gaoding.com/#/" target="content">在线PS</a>
+      </div>
+    </li>
+  </ul>
+</div>
 
-    <a href="#" class="button">Portfolio</a> <!-- 链接按钮 -->
-    <a href="#" class="button">Contact Me</a> <!-- 链接按钮 -->
+
+<div id="main-container" class="main-container">
+  <button onclick="toggleSidebar()">切换侧边栏</button>
+  <div class="main-content">
+    <iframe src="https://cn.bing.com/" name="content"></iframe>
   </div>
+</div>
 
-  <footer class="header">
-    <p>&copy; 2023 My Creative Website. All rights reserved.</p> <!-- 版权信息 -->
-  </footer>
 </body>
-    </html>
+</html>
